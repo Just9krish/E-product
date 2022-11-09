@@ -5,6 +5,8 @@ import menuClose from "../images/icon-close.svg";
 import cartIcon from "../images/icon-cart.svg";
 import avatar from "../images/image-avatar.png";
 
+const links = ["Collections", "Men", "Women", "About", "Contact"];
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -39,6 +41,16 @@ export default function Header() {
               />
             </div>
           </div>
+        </div>
+        <div className={`bg-white w-4/5 z-30 ${isOpen ? "left-0" : "left-[-100%]"} 
+        transition-all duration-500 h-screen text-white fixed top-0 flex flex-col items-start`}>
+          <ul className="flex flex-col mt-24 space-y-6 pl-6 text-black font-semibold">
+            {links.map((link) => (
+              <li key={link}>
+                <Link to="/">{link}</Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </header>
     </>
