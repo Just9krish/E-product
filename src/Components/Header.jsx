@@ -12,7 +12,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed bg-white w-screen desktop:hidden">
+      <header className="fixed bg-white w-full desktop:hidden">
         <div className="flex justify-between">
           <div className="flex items-center px-6 space-x-4">
             <div className="z-40" onClick={() => setIsOpen(!isOpen)}>
@@ -30,13 +30,13 @@ export default function Header() {
             </Link>
           </div>
           <div className="flex items-center space-x-4 p-6">
-            <div>
+            <div className="relative">
               <img src={cartIcon} className="h-4 w-4" alt="cart" />
             </div>
             <div>
               <img
                 src={avatar}
-                className="h-4 w-4 rounded-full"
+                className="h-4 w-4 rounded-full relative"
                 alt="profile picture"
               />
             </div>
@@ -57,7 +57,7 @@ export default function Header() {
       </header>
 
       <header className="extraSmall:hidden desktop:block w-full px-28">
-        <div className="flex justify-between items-center pt-10 pb-4">
+        <div className="flex justify-between items-center pt-10 pb-4 border-b">
           <div className="flex items-center space-x-8 text-black">
             <Link
               to="/"
@@ -67,7 +67,11 @@ export default function Header() {
             </Link>
             <div className="flex items-center space-x-8">
               {links.map((link) => (
-                <Link to="/" key={link} className="block relative hover:after:absolute after:top-12 after:h-1 after:inset-x-0 after:w-fulll after:bg-orange">
+                <Link
+                  to="/"
+                  key={link}
+                  className="block relative hover:after:absolute after:top-12 after:h-1 after:inset-x-0 after:w-fulll after:bg-orange"
+                >
                   {link}
                 </Link>
               ))}
@@ -78,7 +82,11 @@ export default function Header() {
               <img src={cartIcon} className="h-5 w-5" alt="cart" />
             </div>
             <div>
-              <img src={avatar} className="h-11 w-11 rounded-full overflow-hidden hover:border-[3px] border-orange cursor-pointer" alt="profile picture" />
+              <img
+                src={avatar}
+                className="h-11 w-11 rounded-full overflow-hidden hover:border-[3px] border-orange border-opacity-90 cursor-pointer"
+                alt="profile picture"
+              />
             </div>
           </div>
         </div>

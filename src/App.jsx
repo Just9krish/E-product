@@ -3,7 +3,7 @@ import Home from "./Pages/Home";
 
 function App() {
   return (
-    <div className="App">
+    <div className="min-h-screen min-w-full font-kumb text-base selection:text-white selection:bg-[#ff7d1a]">
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
