@@ -12,18 +12,17 @@ export default function Main() {
       <div className="flex desktop:space-x-28">
         <div className="extraSmall:hidden desktop:block relative">
           {images.map((img) => (
-            <div key={img.id}>
-              <img
-                src={img.image}
-                className={`w-96 rounded-lg ${
-                  img.id == index ? "block" : "hidden"
-                } overflow-hidden cursor-pointer`}
-                alt="pix"
-              />
+            <div
+              className={`w-96 rounded-lg ${
+                img.id == index ? "block" : "hidden"
+              } overflow-hidden cursor-pointer`}
+              key={img.id}
+            >
+              <img src={img.image} alt="pix" />
             </div>
           ))}
-          <div className="mt-6">
-            <div className="flex space-x-5">
+          <div className="mt-6 absolute">
+            <div className="flex space-x-5 curosr-pointer">
               {thumbnails.map((thumbnail) => (
                 <div
                   className={`w-20 h-20 hover:opacity-40 cursor-pointer duration-500 hover:border-[2.5px] hover:border-orange hover:bg-orange rounded-lg`}

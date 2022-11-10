@@ -12,7 +12,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed bg-white w-full desktop:hidden">
+      <header className="fixed bg-white w-full z-40 desktop:hidden">
         <div className="flex justify-between">
           <div className="flex items-center px-6 space-x-4">
             <div className="z-40" onClick={() => setIsOpen(!isOpen)}>
