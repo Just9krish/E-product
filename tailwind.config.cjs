@@ -5,13 +5,16 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        kumb: ["Kumbh Sans", "sans-serif"],
+        "kumb": ["Kumbh Sans", "sans-serif"],
       },
+      colors: {
+        "orange": "#ff7d1a"
+      }
     },
     screens: {
       extraSmall: "280px",
       mobile: "375px",
-      desktop: "1440px",
+      desktop: "1140px",
     },
   },
   plugins: [],
