@@ -84,6 +84,10 @@ export default function Header() {
                               className="cursor-pointer"
                               src={deleteIcon}
                               alt="delete"
+                              onClick={() => {
+                                context.removeFromCart(item.itemId);
+                                context.reset();
+                              }}
                             />
                           </div>
                         ))}
@@ -134,7 +138,7 @@ export default function Header() {
                 <Link
                   to="/"
                   key={link}
-                  className="block relative hover:after:absolute after:top-12 after:h-1 after:inset-x-0 after:w-fulll after:bg-orange"
+                  className="block relative hover:after:absolute after:top-12 after:h-1 after:inset-x-0 after:w-full after:bg-orange after:transition-all"
                 >
                   {link}
                 </Link>
@@ -154,7 +158,7 @@ export default function Header() {
             <div className="relative">
               <img
                 src={avatar}
-                className="h-11 w-11 rounded-full overflow-hidden hover:border-[3px] border-orange border-opacity-90 cursor-pointer"
+                className="h-11 w-11 rounded-full overflow-hidden hover:border-[3px] border-orange border-opacity-90 cursor-pointer transition-all"
                 alt="profile picture"
               />
               <div
@@ -184,13 +188,17 @@ export default function Header() {
                               </h1>
                               <span className="text-sm text-gray-500">
                                 {`$${item.amount} x ${item.itemCount}`}{" "}
-                                <span className="font-extrabold">{`$${item.total}`}</span>{" "}
+                                <span className="font-extrabold text-black">{`$${item.total}`}</span>{" "}
                               </span>
                             </div>
                             <img
                               className="cursor-pointer"
                               src={deleteIcon}
                               alt="delete"
+                              onClick={() => {
+                                context.removeFromCart(item.itemId);
+                                context.reset();
+                              }}
                             />
                           </div>
                         ))}
