@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { images, thumbnails } from "../Utils/imagesUtil";
+import { useItemContext } from "../Context/ItemContext";
 import minus from "../images/icon-minus.svg";
 import plus from "../images/icon-plus.svg";
 import cart from "../images/icon-cart.svg";
 
 export default function Main() {
   const [index, setIndex] = useState(0);
+  const context = useItemContext();
 
   return (
     <div className="w-full desktop:block extraSmall:px-0 desktop:px-64 extraSmall:pt-4 extraSmall:pb-10 mobile:pt-6 mobile:pb-36 desktop:pt-16 desktop:pb-40 extraSmall:overflow-hidden">
@@ -72,9 +74,19 @@ export default function Main() {
 
             <div className="flex extraSmall:flex-col desktop:flex-row extraSmall:space-y-4 desktop:space-y-0 desktop:space-x-5">
               <div className="bg-[#f7f8fd] flex items-center justify-between extraSmall:w-full desktop:w-36 h-6 rounded-lg py-6 px-4">
-                <img src={minus} className="cursor-pointer" alt="minus" />
-                <span className="font-semibold">0</span>
-                <img src={plus} className="cursor-pointer" alt="plus" />
+                <img
+                  src={minus}
+                  onClick={context.decrement}
+                  className="cursor-pointer"
+                  alt="minus"
+                />
+                <span className="font-semibold">{context.count}</span>
+                <img
+                  src={plus}
+                  onClick={context.increment}
+                  className="cursor-pointer"
+                  alt="plus"
+                />
               </div>
               <button
                 type="submit"
