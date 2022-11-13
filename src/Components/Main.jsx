@@ -7,7 +7,10 @@ import cart from "../images/icon-cart.svg";
 
 export default function Main() {
   const [index, setIndex] = useState(0);
+  const [amount, setAmout] = useState(125);
   const context = useItemContext();
+
+  const total = amount * context.count;
 
   return (
     <div className="w-full desktop:block extraSmall:px-0 desktop:px-64 extraSmall:pt-4 extraSmall:pb-10 mobile:pt-6 mobile:pb-36 desktop:pt-16 desktop:pb-40 extraSmall:overflow-hidden">
@@ -61,7 +64,7 @@ export default function Main() {
             <div className="extraSmall:flex items-center extrasmall:space-x-12 mobile:space-x-24 desktop:none">
               <div className="flex space-x-3">
                 <h1 className="text-2xl font-extrabold racking-wide">
-                  $125.00
+                  {`$${amount}.00`}
                 </h1>
                 <span className="rounded-lg bg-orange text-orange px-3 text-sm font-black bg-opacity-20 flex items-center justify-center">
                   50%
@@ -91,6 +94,16 @@ export default function Main() {
               <button
                 type="submit"
                 className="flex items-center justify-center rounded-lg bg-orange text-white text-center extraSmall:w-full desktop:w-52 h-10"
+                onClick={() => {
+                  context.addToCart(
+                    "Fall Limited Edition Sneakers",
+                    Date.now(),
+                    context.count,
+                    total,
+                    amount,
+                    1
+                  );
+                }}
               >
                 <img
                   src={cart}

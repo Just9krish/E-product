@@ -57,23 +57,50 @@ export default function Header() {
               >
                 <div className="text-black flex flex-col">
                   <h1 className="border-b p-5 font-semibold">Cart</h1>
-                  <div className="space-y-4">
-                    <div className="flex space-x-4 pt-4 items-center px-5">
-                      <div className="h-12 w-12 rounded-md overflow-hidden">
-                        <img src={images[0].image} alt="pix" />
+                  {context.cart.length !== 0 ? (
+                    <>
+                      <div className="flex flex-col space-y-4">
+                        {context.cart.map((item) => (
+                          <div
+                            key={item.itemId}
+                            className="flex space-x-4 pt-4 items-center px-5"
+                          >
+                            <div className="h-12 w-12 rounded-md overflow-hidden">
+                              <img
+                                src={images[item.imgIndex].image}
+                                alt="pix"
+                              />
+                            </div>
+                            <div>
+                              <h1 className="text-sm text-gray-600">
+                                {item.itemName}
+                              </h1>
+                              <span className="text-sm text-gray-500">
+                                {`$${item.amount} x ${item.itemCount}`}{" "}
+                                <span className="font-extrabold">{`$${item.total}`}</span>{" "}
+                              </span>
+                            </div>
+                            <img
+                              className="cursor-pointer"
+                              src={deleteIcon}
+                              alt="delete"
+                            />
+                          </div>
+                        ))}
                       </div>
-                      <div>
-                        <h1 className="text-sm text-gray-600">
-                          Auntum Limited Shooes
-                        </h1>
+                      <div className="px-5 py-4">
+                        <button className="rounded-lg px-10 bg-orange text-white text-center w-full h-10">
+                          Checkout
+                        </button>
                       </div>
-                      <img className="cursor-pointer" src={deleteIcon} alt="" />
+                    </>
+                  ) : (
+                    <div className="flex justify-center items-center w-full px-5 pt-12 pb-8">
+                      <h1 className="text-sm font-bold text-gray-500">
+                        Your cart is empty!
+                      </h1>
                     </div>
-                  </div>
-                  <div></div>
-                  <button className="rounded-lg px-10 bg-orange text-white text-center w-full h-10">
-                    Checkout
-                  </button>
+                  )}
                 </div>
               </div>
             </div>
@@ -137,23 +164,50 @@ export default function Header() {
               >
                 <div className="text-black flex flex-col">
                   <h1 className="border-b p-5 font-semibold">Cart</h1>
-                  <div className="space-y-4">
-                    <div className="flex space-x-4 pt-4 items-center px-5">
-                      <div className="h-12 w-12 rounded-md overflow-hidden">
-                        <img src={images[0].image} alt="pix" />
+                  {context.cart.length !== 0 ? (
+                    <>
+                      <div className="flex flex-col space-y-4">
+                        {context.cart.map((item) => (
+                          <div
+                            key={item.itemId}
+                            className="flex space-x-4 pt-4 items-center px-5"
+                          >
+                            <div className="h-12 w-12 rounded-md overflow-hidden">
+                              <img
+                                src={images[item.imgIndex].image}
+                                alt="pix"
+                              />
+                            </div>
+                            <div>
+                              <h1 className="text-sm text-gray-600">
+                                {item.itemName}
+                              </h1>
+                              <span className="text-sm text-gray-500">
+                                {`$${item.amount} x ${item.itemCount}`}{" "}
+                                <span className="font-extrabold">{`$${item.total}`}</span>{" "}
+                              </span>
+                            </div>
+                            <img
+                              className="cursor-pointer"
+                              src={deleteIcon}
+                              alt="delete"
+                            />
+                          </div>
+                        ))}
                       </div>
-                      <div>
-                        <h1 className="text-sm text-gray-600">
-                          Auntum Limited Shooes
-                        </h1>
+                      <div className="px-5 py-4">
+                        <button className="rounded-lg px-10 bg-orange text-white text-center w-full h-10">
+                          Checkout
+                        </button>
                       </div>
-                      <img className="cursor-pointer" src={deleteIcon} alt="" />
+                    </>
+                  ) : (
+                    <div className="flex justify-center items-center w-full px-5 pt-12 pb-8">
+                      <h1 className="text-sm font-bold text-gray-500">
+                        Your cart is empty!
+                      </h1>
                     </div>
-                  </div>
-                  <div></div>
-                  <button className="rounded-lg px-10 bg-orange text-white text-center w-full h-10">
-                    Checkout
-                  </button>
+                  )}
                 </div>
               </div>
             </div>
