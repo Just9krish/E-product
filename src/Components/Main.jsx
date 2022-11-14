@@ -4,10 +4,12 @@ import { useItemContext } from "../Context/ItemContext";
 import minus from "../images/icon-minus.svg";
 import plus from "../images/icon-plus.svg";
 import cart from "../images/icon-cart.svg";
+import Modal from "../Components/Modal";
 
 export default function Main() {
   const [index, setIndex] = useState(0);
   const [amount, setAmout] = useState(125);
+  const [isOpen, setIsOpen] = useState(false);
   const context = useItemContext();
 
   const total = amount * context.count;
@@ -22,6 +24,7 @@ export default function Main() {
                 img.id == index ? "block" : "hidden"
               } overflow-hidden cursor-pointer`}
               key={img.id}
+              onClick={() => setIsOpen(true)}
             >
               <img src={img.image} alt="pix" />
             </div>
@@ -77,19 +80,13 @@ export default function Main() {
 
             <div className="flex extraSmall:flex-col desktop:flex-row extraSmall:space-y-4 desktop:space-y-0 desktop:space-x-5">
               <div className="bg-[#f7f8fd] flex items-center justify-between extraSmall:w-full desktop:w-36 h-6 rounded-lg py-6 px-4">
-                <img
-                  src={minus}
-                  onClick={context.decrement}
-                  className="cursor-pointer"
-                  alt="minus"
-                />
+                <div onClick={context.decrement} className="p-2 cursor-pointer">
+                  <img src={minus} alt="minus" />
+                </div>
                 <span className="font-semibold">{context.count}</span>
-                <img
-                  src={plus}
-                  onClick={context.increment}
-                  className="cursor-pointer"
-                  alt="plus"
-                />
+                <div onClick={context.increment} className="p-2 cursor-pointer">
+                  <img src={plus} alt="plus" />
+                </div>
               </div>
               <button
                 type="submit"
@@ -116,6 +113,8 @@ export default function Main() {
           </div>
         </div>
       </div>
+
+      <Modal isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>
   );
 }

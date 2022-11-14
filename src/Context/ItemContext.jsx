@@ -26,7 +26,7 @@ const reducer = (state, { type, payload }) => {
     case "decrement":
       return {
         ...state,
-        count: state.count - 1,
+        count: state.count <= 0 ? 0 : state.count -1,
       };
 
     case "reset":
